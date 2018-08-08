@@ -1,0 +1,26 @@
+<!-- Main working environment -->
+<div class="main">
+    <div class="flight-information">
+        <form class="registration" #airlineRegistrationForm="ngForm" (ngSubmit)="onSubmit(airlineRegistrationForm); airlineRegistrationForm.reset()">
+            <p class="instructions">Registration of the Airline</p>
+            <input type="text" class="info" name="company" #company="ngModel" [(ngModel)]="company.company" placeholder="Name"><br>
+            <input type="email" class="info" name="email" #email="ngModel" [(ngModel)]="email.email" placeholder="Email"><br>
+            <input type="text" class="info" name="username" #username="ngModel" [(ngModel)]="username.username" placeholder="Username"><br>
+            <input type="password" class="info" name="password" #password="ngModel" [(ngModel)]="password.password" placeholder="Password"><br>
+            <input type="text" class="info" name="linkToWS" #linkToWS="ngModel" [(ngModel)]="linkToWS.linkToWS" placeholder="LinkToWS"><br>
+            <input type="text" class="info" name="pathToData" #pathToData="ngModel" [(ngModel)]="pathToData.pathToData" placeholder="pathToData"><br>
+            <input type="text" class="info" name="TRR" #TRR="ngModel" [(ngModel)]="TRR.TRR" placeholder="TRR"><br>
+            <input type="text" class="info" name="ethAddress" #ethAddress="ngModel" [(ngModel)]="ethAddress.ethAddress" placeholder="ethAddress"><br>
+            <input type="number" class="info" name="insurancePrice" #insurancePrice="ngModel" [(ngModel)]="insurancePrice.insurancePrice" placeholder="insurancePrice"><br>
+            <input type="number" class="info" name="maxPayout" #maxPayout="ngModel" [(ngModel)]="maxPayout.maxPayout" placeholder="maxPayout"><br>
+        
+            <!-- Footer -->
+            <footer class="footer">
+                <button class="next-page" type="submit">Register</button>
+            </footer>
+            <!-- Footer END -->
+        </form>
+    </div>
+</div>
+<!-- Main working environment END -->
+

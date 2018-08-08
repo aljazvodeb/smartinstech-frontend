@@ -1,0 +1,13 @@
+<!-- Main working environment -->
+<div class="main">
+  <div class="flight-information">
+      <form class="login" #airlineloginForm="ngForm" (ngSubmit)="onSubmit(airlineLoginForm); airlineLoginForm.reset()">
+          <p class="instructions">Airline login</p>
+          <input type="text" class="info" name="username" #username="ngModel" [(ngModel)]="username.username" placeholder="Username"><br>
+          <input type="password" class="info" name="password" #password="ngModel" [(ngModel)]="password.password" placeholder="Password"><br>
+          <button [disabled]="loading" class="btn btn-primary">Login</button><br>
+          <a [routerLink]="['/airline/registration']" class="btn btn-link">Register</a>
+      </form>
+  </div>
+</div>
+<!-- Main working environment END -->
