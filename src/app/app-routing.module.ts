@@ -7,7 +7,10 @@ import { AirlineLoginComponent } from './airline-login/airline-login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/airline/login', pathMatch: 'full' },
   { path: 'airline/registration', component: AirlineRegistrationComponent },
-  { path: 'airline/login', component: AirlineLoginComponent }
+  { path: 'airline/login', component: AirlineLoginComponent },
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

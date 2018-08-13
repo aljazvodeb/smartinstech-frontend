@@ -1,4 +1,5 @@
 export class Airline {
+    _id: number;
     name: string;
     email: string;
     linkToWS: string;

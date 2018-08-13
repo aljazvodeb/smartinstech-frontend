@@ -1,13 +1,28 @@
 <!-- Main working environment -->
 <div class="main">
   <div class="flight-information">
-      <form class="login" #airlineloginForm="ngForm" (ngSubmit)="onSubmit(airlineLoginForm); airlineLoginForm.reset()">
-          <p class="instructions">Airline login</p>
-          <input type="text" class="info" name="username" #username="ngModel" [(ngModel)]="username.username" placeholder="Username"><br>
-          <input type="password" class="info" name="password" #password="ngModel" [(ngModel)]="password.password" placeholder="Password"><br>
-          <button [disabled]="loading" class="btn btn-primary">Login</button><br>
-          <a [routerLink]="['/airline/registration']" class="btn btn-link">Register</a>
-      </form>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+            <div class="form-group">
+                <input type="text" formControlName="username" class="form-control info" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username"/>
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <input type="password" formControlName="password" class="form-control info" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">Login</button>
+                <a [routerLink]="['/airline/registration']" class="btn btn-link">Register</a>
+            </div>
+    
+        </form>
   </div>
 </div>
 <!-- Main working environment END -->

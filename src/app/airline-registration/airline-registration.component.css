@@ -14,7 +14,7 @@
     margin-bottom: 0%;
 }
 
-input[type=text], [type=password], input[type=number], [type=email]{
+input[type=text], [type=password], input[type=number], [type=email], [type=url]{
     margin-top: 1%;
     height: 30px;
     width: 70%;
