@@ -12,8 +12,10 @@ export class AuthenticationService {
   login(username: string, password: string) {
     return this.http.post<any>(this.rootUrl + '/api/airlines/login', { username: username, password: password })
       .pipe(map(airline => {
-        
-        
+        if (airline) {
+          // store user details in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentAirline', JSON.stringify(airline));
+        }
           return airline;
         }));
   }
