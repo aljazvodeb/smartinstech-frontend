@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
+
 @Injectable()
 export class AuthenticationService {
 
@@ -13,15 +14,15 @@ export class AuthenticationService {
     return this.http.post<any>(this.rootUrl + '/api/airlines/login', { username: username, password: password })
       .pipe(map(airline => {
         if (airline) {
-          // store user details in local storage to keep user logged in between page refreshes
+          // store airline details in local storage to keep airline logged in between page refreshes
           localStorage.setItem('currentAirline', JSON.stringify(airline));
         }
-          return airline;
-        }));
+        return airline;
+      }));
   }
 
   logout() {
-    // remove user from local storage to log user out
+    // remove airline from local storage
     localStorage.removeItem('currentAirline');
   }
 }

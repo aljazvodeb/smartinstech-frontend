@@ -29,8 +29,8 @@ export class AirlineRegistrationComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       linkToWS: ['', Validators.required],
-      pathToData: ['', Validators.required],
-      TRR: ['', Validators.required],
+      //pathToData: ['', Validators.required],
+      //TRR: ['', Validators.required],
       ethAddress: ['', Validators.required],
       insurancePrice: ['', Validators.required],
       maxPayout: ['', Validators.required]
@@ -53,6 +53,10 @@ export class AirlineRegistrationComponent implements OnInit {
     this.airlineService.registerAirline(this.registerForm.value)
       .pipe(first())
       .subscribe(
+        data => {
+          this.alertService.success('Registration successful', true);
+          this.router.navigate(['/airline/login']);
+        },
         error => {
           if (error.status === 200) {
             this.alertService.success('Registration successful', true);

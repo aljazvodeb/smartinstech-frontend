@@ -33,8 +33,8 @@ export class AirlineLoginComponent implements OnInit {
     // reset login status
     this.authenticationService.logout();
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'airline';
+    // get return url from route parameters or default to '/airline'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/airline';
   }
 
   // getter for easy access to form fields
@@ -53,11 +53,10 @@ export class AirlineLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log([this.returnUrl]);
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          if(error.status === 401) {
+          if(error.status === 401 || error.status === 404) {
             this.alertService.error('Username or password is incorrect');
             this.loading = false;
           } else {

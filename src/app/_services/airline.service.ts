@@ -4,7 +4,6 @@ import { Airline } from '../_models/airline';
 import { Observable } from 'rxjs';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,8 +25,9 @@ export class AirlineService {
     return this.http.get(this.rootUrl + '/api/airlines/' + id);
   }
 
-  update(airline: Airline) {
-    return this.http.put(this.rootUrl + '/api/airlines/' + airline._id, airline);
+  update(id: number,airline: Airline) {
+    localStorage.setItem('currentAirline', JSON.stringify(airline));
+    return this.http.put(this.rootUrl + '/api/airlines/' + id, airline);
   }
 
   delete(id: number) {
