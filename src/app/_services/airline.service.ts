@@ -25,7 +25,7 @@ export class AirlineService {
     return this.http.get(this.rootUrl + '/api/airlines/' + id);
   }
 
-  update(id: number,airline: Airline) {
+  update(id: number,airline: Airline): Observable<any> {
     localStorage.setItem('currentAirline', JSON.stringify(airline));
     return this.http.put(this.rootUrl + '/api/airlines/' + id, airline);
   }
