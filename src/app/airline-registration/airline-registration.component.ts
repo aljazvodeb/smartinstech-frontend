@@ -53,17 +53,14 @@ export class AirlineRegistrationComponent implements OnInit {
     this.airlineService.registerAirline(this.registerForm.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.alertService.success('Registration successful', true);
-          this.router.navigate(['/airline/login']);
-        },
         error => {
-          this.alertService.success('Registration successful', true);
-          this.router.navigate(['/airline/login']);
-          /*  
-          this.alertService.error(error);
-          this.loading = false;
-          */
+          if (error.status === 200) {
+            this.alertService.success('Registration successful', true);
+            this.router.navigate(['/airline/login']);
+          } else {
+            this.alertService.error(error);
+            this.loading = false;
+          }
         });
   }
 

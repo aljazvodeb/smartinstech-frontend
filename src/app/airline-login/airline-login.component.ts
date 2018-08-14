@@ -37,7 +37,7 @@ export class AirlineLoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // convenience getter for easy access to form fields
+  // getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
