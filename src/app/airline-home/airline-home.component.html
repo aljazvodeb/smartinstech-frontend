@@ -5,6 +5,8 @@
         <h1>{{currentAirline.name}}</h1>
 
         <button [routerLink]="['/airline/login']"  class="btn btn-link">Logout</button>
+        <button (click)="delete()" class="btn btn-link">Delete</button>
+
         
         <form class="registration" [formGroup]="updateForm" (ngSubmit)="onSubmit()">
             <p class="instructions">Update informations</p>

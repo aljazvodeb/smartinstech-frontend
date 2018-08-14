@@ -21,7 +21,8 @@ export class AirlineHomeComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private airlineService: AirlineService,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private router: Router) {
       
       this.currentAirline = JSON.parse(localStorage.getItem('currentAirline'));
 
@@ -44,6 +45,25 @@ export class AirlineHomeComponent implements OnInit {
 
   // getter for easy access to form fields
   get f() { return this.updateForm.controls; }
+
+  delete(){
+    this.airlineService.delete(this.currentAirline._id)
+    .pipe(first())
+    .subscribe(
+      data => {
+        this.alertService.success('Deleted successfuly', true);
+        this.router.navigate(['/airline/login']);
+      },
+      error => {
+        if (error.status === 200) {
+          this.alertService.success('Deleted successfuly', true);
+          this.router.navigate(['/airline/login']);
+        } else {
+          this.alertService.error(error);
+          this.loading = false;
+        }
+      });
+  } 
 
   onSubmit() {
     this.submitted = true;
