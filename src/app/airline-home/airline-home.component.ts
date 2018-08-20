@@ -15,7 +15,6 @@ import { first } from 'rxjs/operators';
 export class AirlineHomeComponent implements OnInit {
   updateForm: FormGroup;
   currentAirline: Airline;
-  loading = false;
   submitted = false;
 
   constructor(
@@ -31,11 +30,11 @@ export class AirlineHomeComponent implements OnInit {
   ngOnInit() {
     this.updateForm = this.formBuilder.group({
       name: [this.currentAirline.name, Validators.required],
-      email: [this.currentAirline.email, Validators.required],
+      email: [this.currentAirline.email, [Validators.required, Validators.email]],
       username: [this.currentAirline.username, Validators.required],
       password: [this.currentAirline.password, [Validators.required, Validators.minLength(6)]],
       linkToWS: [this.currentAirline.linkToWS, Validators.required],
-      //pathToData: [this.currentAirline.pathToData, Validators.required],
+      pathToData: [this.currentAirline.pathToData, Validators.required],
       //TRR: [this.currentAirline.TRR, Validators.required],
       ethAddress: [this.currentAirline.ethAddress, Validators.required],
       insurancePrice: [this.currentAirline.insurancePrice, Validators.required],
@@ -59,8 +58,7 @@ export class AirlineHomeComponent implements OnInit {
           this.alertService.success('Deleted successfuly', true);
           this.router.navigate(['/airline/login']);
         } else {
-          this.alertService.error(error);
-          this.loading = false;
+          this.alertService.error(error.statusText);
         }
       });
   } 
@@ -73,7 +71,6 @@ export class AirlineHomeComponent implements OnInit {
         return;
     }
 
-    this.loading = true;
     this.airlineService.update(this.currentAirline._id, this.updateForm.value)
       .pipe(first())
       .subscribe(
@@ -84,8 +81,7 @@ export class AirlineHomeComponent implements OnInit {
           if (error.status === 200) {
             this.alertService.success('Update successful');
           } else {
-            this.alertService.error(error);
-            this.loading = false;
+            this.alertService.error(error.statusText);
           }
         });
   }

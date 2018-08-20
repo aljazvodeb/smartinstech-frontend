@@ -3,7 +3,7 @@
     <div class="flight-information">
         <form class="registration" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <p class="instructions">Registration of the Airline</p>
-            
+<!--            
             <div class="form-group">
                 <input type="text" formControlName="name" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name"/>
                 <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
@@ -17,7 +17,7 @@
                     <div *ngIf="f.email.errors.required">Email is required</div>
                 </div>
             </div>
-
+-->
             <div class="form-group">
                 <input type="text" formControlName="username" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username"/>
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -32,14 +32,14 @@
                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
-
+<!--
             <div class="form-group">
                 <input type="url" formControlName="linkToWS" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.linkToWS.errors }" placeholder="Link to WebService"/>
                 <div *ngIf="submitted && f.linkToWS.errors" class="invalid-feedback">
                     <div *ngIf="f.linkToWS.errors.required">LinkToWS is required</div>
                 </div>
             </div>
-<!--
+
             <div class="form-group">
                 <input type="text" formControlName="pathToData" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.pathToData.errors }" placeholder="PathToData"/>
                 <div *ngIf="submitted && f.pathToData.errors" class="invalid-feedback">
@@ -53,7 +53,7 @@
                     <div *ngIf="f.TRR.errors.required">TRR is required</div>
                 </div>
             </div>
--->
+
             <div class="form-group">
                 <input type="text" formControlName="ethAddress" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.ethAddress.errors }" placeholder="ethAddress"/>
                 <div *ngIf="submitted && f.ethAddress.errors" class="invalid-feedback">
@@ -74,7 +74,7 @@
                     <div *ngIf="f.maxPayout.errors.required">maxPayout is required</div>
                 </div>
             </div>
-
+-->
             <!-- Footer -->
             <footer class="footer">
                 <button class="next-page">Register</button>

@@ -24,6 +24,7 @@
                 <input type="email" formControlName="email" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Input is not email</div>
                 </div>
             </div>
 
@@ -49,17 +50,18 @@
                 <input type="url" formControlName="linkToWS" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.linkToWS.errors }"/>
                 <div *ngIf="submitted && f.linkToWS.errors" class="invalid-feedback">
                     <div *ngIf="f.linkToWS.errors.required">LinkToWS is required</div>
+                    <div *ngIf="f.linkToWS.errors.url">Input is not url</div>
                 </div>
             </div>
-<!--
+
             <div class="form-group">
                 <label>pathToData</label>
-                <input type="text" formControlName="pathToData" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.pathToData.errors }"/>
+                <input type="url" formControlName="pathToData" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.pathToData.errors }"/>
                 <div *ngIf="submitted && f.pathToData.errors" class="invalid-feedback">
                     <div *ngIf="f.pathToData.errors.required">pathToData is required</div>
                 </div>
             </div>
-
+<!--
             <div class="form-group">
                 <label>TRR</label>
                 <input type="text" formControlName="TRR" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.TRR.errors }"/>
