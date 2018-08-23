@@ -60,7 +60,7 @@ export class AirlineLoginComponent implements OnInit {
             this.alertService.error('Username or password is incorrect');
             this.loading = false;
           } else {
-            this.alertService.error(error.status);
+            this.alertService.error(error.statusText);
             this.loading = false;
           }
         });

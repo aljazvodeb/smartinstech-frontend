@@ -1,19 +1,20 @@
-/*CSS Style document*/
 /* Body & Wrapper */
-body {
-    font-family: 'Quicksand', sans-serif;
+body {		
+    font-family: 'Quicksand', sans-serif; 
     color: white;
+    background: #003366; 		
     padding: 0;
     margin: 0;
 }
 
 .wrapper {
-    background: #003366; /*--KASNEJE OBVEZNO--*/
+    background: #003366; 
     height: 100%;
-    display: flex;
+    display: flex;  
     flex-flow:column;
     font-weight: bold;
     text-align: center;
+    padding-bottom: 10%;
 }
 
 .wrapper > * {
@@ -21,6 +22,213 @@ body {
     /*flex: 1 100%;*/
 }
 /* Body & Wrapper END */
+
+
+/* Main working environment */
+.main{
+    height: 55%;
+}
+
+.main > .scan {
+    margin-top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instructions{
+    margin-top: 2%;
+    margin-bottom: 0%;
+}
+
+.instructions2{
+    margin-top: 2%;
+    margin-bottom: 0%;
+    text-align: left;
+    margin-left: 15%;
+  }
+
+input[type=text], [type=password], input[type=number], [type=email], [type=url]{
+    margin-top: 2%;
+    height: 30px;
+    width: 70%;
+    background-color: white;
+    font-family: 'Quicksand', sans-serif;
+    border-style: none;
+}
+
+.info{
+    padding-left: 10px;
+}
+
+.helpart{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10%;
+  }
+  
+.question{
+text-align: left;
+border-bottom: 1px solid grey;
+}
+
+.answer{
+text-align: left;
+}
+/* Main working environment END */
+
+/*camera icon*/
+.big-icon {
+    color: #003366;
+    margin-top: 25%
+  }
+  
+.circle-icon {
+background: #FFFFFF;
+padding: 40px;
+border-radius: 50%;
+}
+/*Camera button END*/
+
+/* Progress bar */
+.progress {
+    height: 25%;
+}
+
+table{
+  text-align: left;
+  width: 70%;
+  height: auto;
+  align-content: conter;
+}
+
+th{
+  font-size: 16px;
+  width: auto;
+  height: auto;
+}
+
+th:last-child{
+  width: 75px;
+  float: right;
+  height: auto;
+}
+
+td{
+  font-family: Arial Narrow;
+  font-weight: bold;
+  color: white;
+  width: auto;
+  height: auto;
+  font-size: 24px;
+}
+
+td:last-child{
+  width: 75px;
+  float: right;
+}
+
+.progress > .progress-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 30px;
+    background-color: white;
+    border-radius: 13px; /* (height of inner div) / 2 + padding */
+}
+
+/* progess bar white */
+.progress-bar > .circle{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #146eff;
+    background-color: white;
+}
+
+.circle:first-child{
+    margin-left: 15%;
+    background-color: #146eff;
+}
+
+.circle:last-child{
+    margin-right: 15%;
+}
+/* Progress bar END */
+
+/* progess bar blue */
+.progress-barBlue > .circle{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #146eff;
+    background-color: #146eff;
+}
+.circle{
+    background-color: #146eff;
+}
+
+.circle:first-child{
+    margin-left: 15%;
+    background-color: #146eff;
+}
+
+.circle:last-child{
+    margin-right: 15%;
+    background-color: white;
+}
+/* Progress bar END */
+  
+
+/* Footer */
+.footer{
+    height: 10%;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button:hover {
+    color: grey;
+}
+
+.next-page{
+    vertical-align: middle;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font-weight: bold;
+}
+
+/* Footer END */
+
+@media all and (min-width: 600px) {
+
+}
+
+@media all and (min-width: 800px) {
+    .logo    { order: 0; }
+    .main { order: 2; } 
+    .progress { order: 3; }
+    .footer  { order: 4; }
+}
 
 /* Navigation bar (Need help?/Menu) */
 .navbar {
@@ -52,7 +260,19 @@ body {
 
 .menulogo{
     width: 24px;
-    height: 24px;
+    height: 24px;     
+}
+
+.navbar > .logo {
+    flex: 2;
+    text-align: center;
+    margin: 2%;
+}
+
+.plane{
+    height: 50px;
+    width: 70px;
+    margin-top: 10px;
 }
 
 /* The Overlay (background) */
@@ -113,240 +333,42 @@ body {
 }
 /* Navigation bar (Need help?/Menu) END */
 
-/* Plane logo */
-.logo {
-    height: 50px;
-    text-align: left;
-}
-
-.logo > .plane{
-    height: 50px;
-    width: 70px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* Plane logo END */
-
-/* Main working environment */
-.main {
-    height: 55%;
-}
-
-.instructions{
-    margin-top: 2%;
-    margin-bottom: 0%;
-}
-
-.instructions2{
-  margin-top: 2%;
-  margin-bottom: 0%;
-  text-align: left;
-  margin-left: 15%;
-}
-
-.helpart{
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-bottom: 10%;
-}
-
-.question{
-  text-align: left;
-  border-bottom: 1px solid grey;
-}
-
-.answer{
-  text-align: left;
-}
-
-input[type=text]{
-    margin-top: 2%;
-    height: 30px;
-    width: 70%;
-    background-color: white;
-    font-family: 'Quicksand', sans-serif;
-    border-style: none;
-}
-
-.info{
-    padding-left: 10px;
-}
-/* Main working environment END */
-
-.main > .scan {
-    margin-top: 10%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* Main working environment END */
-
-/*camera icon*/
-.big-icon {
-  color: #003366;
-  margin-top: 25%
-}
-
-.circle-icon {
-  background: #FFFFFF;
-  padding: 40px;
-  border-radius: 50%;
-}
-/*Camera button END*/
-
-/* Progress bar */
-.progress {
-    height: 25%;
-}
-
-table{
-  text-align: left;
-  width: 70%;
-  height: auto;
-  align-content: conter;
-}
-
-th{
-  font-size: 16px;
-  width: auto;
-  height: auto;
-}
-
-th:last-child{
-  width: 75px;
-  float: right;
-  height: auto;
-}
-
-td{
-  font-family: Arial Narrow;
-  font-weight: bold;
-  color: white;
-  width: auto;
-  height: auto;
-  font-size: 24px;
-}
-
-td:last-child{
-  width: 75px;
-  float: right;
-}
-
-.progress > .progress-bar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: 20%;
-    margin-right: 20%;
-    height: 30px;
-    background-color: white;
-    border-radius: 13px; /* (height of inner div) / 2 + padding */
-}
-/* progess bar white */
-.progress-bar > .circle{
-    margin-top: 5px;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #146eff;
-    background-color: white;
-}
-
-.circle:first-child{
-    margin-left: 15%;
-    background-color: #146eff;
-}
-
-.circle:last-child{
-    margin-right: 15%;
-}
-/* Progress bar END */
-
-/* progess bar blue */
-.progress-barBlue > .circle{
-    margin-top: 5px;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #146eff;
-    background-color: #146eff;
-}
-.circle{
-    background-color: #146eff;
-}
-
-.circle:first-child{
-    margin-left: 15%;
-    background-color: #146eff;
-}
-
-.circle:last-child{
-    margin-right: 15%;
-    background-color: white;
-}
-/* Progress bar END */
-/* Footer */
-.footer{
-    height: 10%;
-    background-color: white;
-}
-
-a{
-    text-decoration: none;
-    color: black;
-}
-
-a:hover {
-    color: grey;
-}
-
-.next-page{
-    vertical-align: middle;
-    text-align: center;
-    font-size: 24px;
-    color: black;
-}
-/* Footer END */
-
 /*input active border*/
-input[type=text], textarea {
-  -webkit-transition: all 0.10s ease-in-out;
-  -moz-transition: all 0.10s ease-in-out;
-  -ms-transition: all 0.10s ease-in-out;
-  -o-transition: all 0.10s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid #FFFFFF;
-}
+input[type=text], [type=password], input[type=number], [type=email], [type=url], textarea {
+    -webkit-transition: all 0.10s ease-in-out;
+    -moz-transition: all 0.10s ease-in-out;
+    -ms-transition: all 0.10s ease-in-out;
+    -o-transition: all 0.10s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #FFFFFF;
+  }
+  
 
-input[type=text]:focus, textarea:focus {
-  font-family: 'Quicksand', sans-serif;
-  border: 2px solid #ff6700;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  background: #FFFFFF;
-  color: #146eff;
+  input[type=text]:focus, [type=password]:focus, input[type=number]:focus, [type=email]:focus, [type=url]:focus, textarea:focus {
+    font-family: 'Quicksand', sans-serif;
+    border: 2px solid #ff6700;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    background: #FFFFFF;
+    color: #146eff;
+}  
 
 @media all and (min-width: 600px) {
 
 }
 
 @media all and (min-width: 800px) {
-    .logo    { order: 1; }
-    .main { order: 2; }
+    .logo    { order: 0; }
+    .main { order: 2; } 
     .progress { order: 3; }
     .footer  { order: 4; }
-    input [type=text]{
-      width: 300px;
-    }
-
+    
 }
 
-
-}
 /*CLAIM button*/
 .blue {
-  color: orange:
-}
+    color: orange;
+  }
+

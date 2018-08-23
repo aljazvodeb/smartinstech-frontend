@@ -10,7 +10,6 @@
                     <div *ngIf="f.name.errors.required">Name is required</div>
                 </div>
             </div>
-
             <div class="form-group">
                 <input type="email" formControlName="email" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email"/>
                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -39,35 +38,30 @@
                     <div *ngIf="f.linkToWS.errors.required">LinkToWS is required</div>
                 </div>
             </div>
-
             <div class="form-group">
                 <input type="text" formControlName="pathToData" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.pathToData.errors }" placeholder="PathToData"/>
                 <div *ngIf="submitted && f.pathToData.errors" class="invalid-feedback">
                     <div *ngIf="f.pathToData.errors.required">pathToData is required</div>
                 </div>
             </div>
-
             <div class="form-group">
                 <input type="text" formControlName="TRR" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.TRR.errors }" placeholder="TRR"/>
                 <div *ngIf="submitted && f.TRR.errors" class="invalid-feedback">
                     <div *ngIf="f.TRR.errors.required">TRR is required</div>
                 </div>
             </div>
-
             <div class="form-group">
                 <input type="text" formControlName="ethAddress" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.ethAddress.errors }" placeholder="ethAddress"/>
                 <div *ngIf="submitted && f.ethAddress.errors" class="invalid-feedback">
                     <div *ngIf="f.ethAddress.errors.required">TRR is required</div>
                 </div>
             </div>
-
             <div class="form-group">
                 <input type="number" formControlName="insurancePrice" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.insurancePrice.errors }" placeholder="insurancePrice"/>
                 <div *ngIf="submitted && f.insurancePrice.errors" class="invalid-feedback">
                     <div *ngIf="f.insurancePrice.errors.required">insurancePrice is required</div>
                 </div>
             </div>
-
             <div class="form-group">
                 <input type="number" formControlName="maxPayout" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.maxPayout.errors }" placeholder="maxPayout"/>
                 <div *ngIf="submitted && f.maxPayout.errors" class="invalid-feedback">
@@ -84,4 +78,3 @@
     </div>
 </div>
 <!-- Main working environment END -->
-
