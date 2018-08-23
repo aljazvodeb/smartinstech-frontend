@@ -1,7 +1,352 @@
+/*CSS Style document*/
+/* Body & Wrapper */
 body {
-    font-family: Arial Narrow;
+    font-family: 'Quicksand', sans-serif;
     color: white;
-    background: #146eff; 
     padding: 0;
     margin: 0;
+}
+
+.wrapper {
+    background: #003366; /*--KASNEJE OBVEZNO--*/
+    height: 100%;
+    display: flex;
+    flex-flow:column;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wrapper > * {
+    height: 100%;
+    /*flex: 1 100%;*/
+}
+/* Body & Wrapper END */
+
+/* Navigation bar (Need help?/Menu) */
+.navbar {
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar > .help {
+    flex: 1;
+    text-align: left;
+    margin: 2%;
+}
+
+.help a{
+    color: white;
+    cursor: pointer;
+}
+
+.help a:hover{ /*optimally*/
+    color: #eaeaea;
+}
+
+.navbar > .menu {
+    flex: 1;
+    text-align: right;
+    margin: 2%;
+}
+
+.menulogo{
+    width: 24px;
+    height: 24px;
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+/* Navigation bar (Need help?/Menu) END */
+
+/* Plane logo */
+.logo {
+    height: 50px;
+    text-align: left;
+}
+
+.logo > .plane{
+    height: 50px;
+    width: 70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Plane logo END */
+
+/* Main working environment */
+.main {
+    height: 55%;
+}
+
+.instructions{
+    margin-top: 2%;
+    margin-bottom: 0%;
+}
+
+.instructions2{
+  margin-top: 2%;
+  margin-bottom: 0%;
+  text-align: left;
+  margin-left: 15%;
+}
+
+.helpart{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10%;
+}
+
+.question{
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.answer{
+  text-align: left;
+}
+
+input[type=text]{
+    margin-top: 2%;
+    height: 30px;
+    width: 70%;
+    background-color: white;
+    font-family: 'Quicksand', sans-serif;
+    border-style: none;
+}
+
+.info{
+    padding-left: 10px;
+}
+/* Main working environment END */
+
+.main > .scan {
+    margin-top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Main working environment END */
+
+/*camera icon*/
+.big-icon {
+  color: #003366;
+  margin-top: 25%
+}
+
+.circle-icon {
+  background: #FFFFFF;
+  padding: 40px;
+  border-radius: 50%;
+}
+/*Camera button END*/
+
+/* Progress bar */
+.progress {
+    height: 25%;
+}
+
+table{
+  text-align: left;
+  width: 70%;
+  height: auto;
+  align-content: conter;
+}
+
+th{
+  font-size: 16px;
+  width: auto;
+  height: auto;
+}
+
+th:last-child{
+  width: 75px;
+  float: right;
+  height: auto;
+}
+
+td{
+  font-family: Arial Narrow;
+  font-weight: bold;
+  color: white;
+  width: auto;
+  height: auto;
+  font-size: 24px;
+}
+
+td:last-child{
+  width: 75px;
+  float: right;
+}
+
+.progress > .progress-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 30px;
+    background-color: white;
+    border-radius: 13px; /* (height of inner div) / 2 + padding */
+}
+/* progess bar white */
+.progress-bar > .circle{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #146eff;
+    background-color: white;
+}
+
+.circle:first-child{
+    margin-left: 15%;
+    background-color: #146eff;
+}
+
+.circle:last-child{
+    margin-right: 15%;
+}
+/* Progress bar END */
+
+/* progess bar blue */
+.progress-barBlue > .circle{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #146eff;
+    background-color: #146eff;
+}
+.circle{
+    background-color: #146eff;
+}
+
+.circle:first-child{
+    margin-left: 15%;
+    background-color: #146eff;
+}
+
+.circle:last-child{
+    margin-right: 15%;
+    background-color: white;
+}
+/* Progress bar END */
+/* Footer */
+.footer{
+    height: 10%;
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: grey;
+}
+
+.next-page{
+    vertical-align: middle;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+}
+/* Footer END */
+
+/*input active border*/
+input[type=text], textarea {
+  -webkit-transition: all 0.10s ease-in-out;
+  -moz-transition: all 0.10s ease-in-out;
+  -ms-transition: all 0.10s ease-in-out;
+  -o-transition: all 0.10s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #FFFFFF;
+}
+
+input[type=text]:focus, textarea:focus {
+  font-family: 'Quicksand', sans-serif;
+  border: 2px solid #ff6700;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  background: #FFFFFF;
+  color: #146eff;
+
+@media all and (min-width: 600px) {
+
+}
+
+@media all and (min-width: 800px) {
+    .logo    { order: 1; }
+    .main { order: 2; }
+    .progress { order: 3; }
+    .footer  { order: 4; }
+    input [type=text]{
+      width: 300px;
+    }
+
+}
+
+
+}
+/*CLAIM button*/
+.blue {
+  color: orange:
 }
