@@ -2,7 +2,7 @@
 <div class="main">
     <div class="flight-information">
         <form class="registration" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <p class="instructions">Registration of the Airline</p>
+            <p class="instructions">Airline Registration</p>
             
             <div class="form-group">
                 <input type="text" formControlName="name" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name"/>
