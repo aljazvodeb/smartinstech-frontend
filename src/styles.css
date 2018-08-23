@@ -50,7 +50,7 @@ body {
 
 input[type=text], [type=password], input[type=number], [type=email], [type=url]{
     margin-top: 2%;
-    height: 30px;
+    height: 20px;
     width: 70%;
     background-color: white;
     font-family: 'Quicksand', sans-serif;
