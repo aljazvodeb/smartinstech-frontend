@@ -1,0 +1,46 @@
+<app-qr-scanner *ngIf='show' (boardPassData)="handleDataFormResult($event)" (currentDeviceId)="handleCurrentDeviceId($event)">
+</app-qr-scanner>
+<div *ngIf='!show'>
+  <div class="container forma">
+    <div>
+      <h3>{{formText}}</h3>
+    </div>
+    <div *ngIf="errorText" style="color:red;">
+      <h4>{{errorText}}</h4>
+    </div>
+    <form>
+      <div class="form-group">
+        <label>First Name </label>
+        <input type="text" class="form-control" [(ngModel)]="formData.name" id="name" name='name'>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name </label>
+        <input type="text" class="form-control" [(ngModel)]="formData.surname" name='surname' id="surname">
+      </div>
+      <div class="form-group">
+        <label>From</label>
+        <input type="text" class="form-control" [(ngModel)]="formData.fromAirport" name='fromAirport' id="fromAirport">
+      </div>
+      <div class="form-group">
+        <label>To</label>
+        <input type="text" class="form-control" [(ngModel)]="formData.toAirport" name='toAirport' id="toAirport">
+      </div>
+
+      <div class="form-group">
+        <label>Flight Number</label>
+        <input type="text" class="form-control" [(ngModel)]="formData.flightNumber" name='flightNumber' id="flightNumber">
+      </div>
+
+      <div class="form-group">
+        <label>Date of Flight</label>
+        <input type="date" class="form-control" [(ngModel)]="formData.dateOfFlight" name='dateOfFlight' id="dateOfFlight">
+      </div>
+
+
+
+      <button type="submit" (click)='onSubmit()' class="button btn btn-success">Submit</button>
+
+    </form>
+  </div>
+</div>

@@ -1,6 +1,10 @@
+import { QRScannerComponent } from './QRScanner/QRScanner.component';
+import { BoardPassScannComponent } from './boardPassScann/boardPassScann.component';
+import { BarcodeScannerComponent } from './BarCodeScanner/barCodeScanner.component';
+import { BaggageScannComponent } from './baggageScann/baggageScann.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AirlineRegistrationComponent } from './airline-registration/airline-registration.component';
 import { AirlineLoginComponent } from './airline-login/airline-login.component';
@@ -15,6 +19,8 @@ import { NavigationComponent } from './_shared/navigation/navigation.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserInsureComponent } from './user-insure/user-insure.component';
 
+import { ZXingScannerModule } from './_modules/zxing-scanner/zxing-scanner.module';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +30,19 @@ import { UserInsureComponent } from './user-insure/user-insure.component';
     AirlineHomeComponent,
     AlertComponent,
     NavigationComponent,
-    UserInsureComponent
+    UserInsureComponent,
+    BaggageScannComponent,
+    BarcodeScannerComponent,
+    BoardPassScannComponent,
+    QRScannerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ZXingScannerModule.forRoot(),
+    FormsModule
   ],
   providers: [
     AuthGuard,

@@ -1,3 +1,5 @@
+import { BaggageScannComponent } from './baggageScann/baggageScann.component';
+import { BoardPassScannComponent } from './boardPassScann/boardPassScann.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,7 +14,11 @@ const routes: Routes = [
   { path: 'airline/registration', component: AirlineRegistrationComponent },
   { path: 'airline/login', component: AirlineLoginComponent },
   { path: 'user/insure', component: UserInsureComponent },
-
+  { path: 'boardPass', component: BoardPassScannComponent },
+  {
+    path: 'baggage/:cameraId',
+    component: BaggageScannComponent,
+  },
   // otherwise redirect to home
   { path: '**', redirectTo: 'airline' }
 ];
