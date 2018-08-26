@@ -30,7 +30,7 @@ export class BaggageScannComponent implements OnInit {
     } else {
       this.errorText = undefined;
       console.log('Baggage Number: ' + this.formData.baggageNumber);
-      this.router.navigate(['/user/insure']);
+      this.router.navigate(['/insure']);
     }
   }
 

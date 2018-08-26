@@ -13,14 +13,14 @@ const routes: Routes = [
   { path: 'airline', component: AirlineHomeComponent, canActivate: [AuthGuard] },
   { path: 'airline/registration', component: AirlineRegistrationComponent },
   { path: 'airline/login', component: AirlineLoginComponent },
-  { path: 'user/insure', component: UserInsureComponent },
+  { path: 'insure', component: UserInsureComponent },
   { path: 'boardPass', component: BoardPassScannComponent },
   {
     path: 'baggage/:cameraId',
     component: BaggageScannComponent,
   },
   // otherwise redirect to home
-  { path: '**', redirectTo: 'airline' }
+  { path: '**', redirectTo: 'boardPass' }
 ];
 
 @NgModule({
