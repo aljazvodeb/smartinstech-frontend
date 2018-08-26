@@ -15,6 +15,8 @@ export class BoardPassScannComponent implements OnInit {
   formData = new BoardPassData();
   deviceId: string;
 
+  showScanner = false;
+
   formText = 'Please check, (if needed) edit your information and add Date of flight';
   errorText: string;
 
@@ -58,6 +60,10 @@ export class BoardPassScannComponent implements OnInit {
   handleCurrentDeviceId(deviceId) {
     console.log(deviceId);
     this.deviceId = deviceId;
+  }
+
+  activateScanner() {
+    this.showScanner = !this.showScanner;
   }
 
 

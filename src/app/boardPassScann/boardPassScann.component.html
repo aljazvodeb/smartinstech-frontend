@@ -1,5 +1,11 @@
-<app-qr-scanner *ngIf='show' (boardPassData)="handleDataFormResult($event)" (currentDeviceId)="handleCurrentDeviceId($event)">
+<app-qr-scanner *ngIf='showScanner && show' (boardPassData)="handleDataFormResult($event)" (currentDeviceId)="handleCurrentDeviceId($event)">
 </app-qr-scanner>
+
+<div *ngIf="!showScanner">
+  <h1>Begin Scan</h1>
+  <i (click)="activateScanner()" class="fas fa-camera big-icon fa-3x circle-icon"></i>
+</div>
+
 <div *ngIf='!show'>
   <div class="container forma">
     <div>
@@ -37,10 +43,12 @@
         <input type="date" class="form-control" [(ngModel)]="formData.dateOfFlight" name='dateOfFlight' id="dateOfFlight">
       </div>
 
-
-
-      <button type="submit" (click)='onSubmit()' class="button btn btn-success">Submit</button>
+      <!-- <button type="submit"  class="button btn btn-success">Submit</button> -->
 
     </form>
+    <footer class="footer">
+        <button (click)='onSubmit()' class="next-page">Scan Baggage</button>
+    </footer>
   </div>
 </div>
+

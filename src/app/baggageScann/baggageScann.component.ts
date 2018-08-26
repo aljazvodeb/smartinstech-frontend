@@ -23,7 +23,9 @@ export class BaggageScannComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.formData.baggageNumber.length < 10) {
+    if (this.formData.baggageNumber === undefined) {
+      this.errorText = '*Pease write your baggage number';
+    } else if (this.formData.baggageNumber.length < 10) {
       this.errorText = '*Baggage number has to be 10 digits';
     } else {
       this.errorText = undefined;

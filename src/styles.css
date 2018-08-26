@@ -80,7 +80,10 @@ text-align: left;
 /*camera icon*/
 .big-icon {
     color: #003366;
-    margin-top: 25%
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
 .circle-icon {
