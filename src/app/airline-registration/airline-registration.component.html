@@ -3,7 +3,7 @@
     <div class="flight-information">
         <form class="registration" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <p class="instructions">Registration of the Airline</p>
-<!--            
+<!--
             <div class="form-group">
                 <input type="text" formControlName="name" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name"/>
                 <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
@@ -17,15 +17,15 @@
                 </div>
             </div>
 -->
-            <div class="form-group">
-                <input type="text" formControlName="username" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username"/>
+            <div class="col-3">
+                <input type="text" formControlName="username" class="effect-1" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username"/><span class="focus-border"></span>
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <input type="password" formControlName="password" class="info form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password"/>
+            <div class="col-3">
+                <input type="password" formControlName="password" class="effect-1" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password"/><span class="focus-border"></span>
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
@@ -71,7 +71,7 @@
 -->
             <!-- Footer -->
             <footer class="footer">
-                <button class="next-page">Register</button>
+                <button class="next-page">REGISTER</button>
             </footer>
             <!-- Footer END -->
         </form>
