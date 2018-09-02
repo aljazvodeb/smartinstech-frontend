@@ -1,0 +1,50 @@
+<!-- Main working environment -->
+<div class="main">
+  <div class="smart-contract-info">
+    <form class="smartcontractinfo" [formGroup]="insureForm" (ngSubmit)="onSubmit()">
+      <p class="instructions">Smart Contract Info</p>
+
+      <div class="col-3">
+        <p class="instructions2">Airline</p>
+        <p>{{airline.name}}</p>
+      </div>
+
+
+      <div class="col-3">
+        <p class="instructions2">Flight Number</p>
+        <p>{{boardPass.flightNumber}}</p>
+      </div>
+
+
+      <div class="col-3">
+        <p class="instructions2">Baggage Number</p>
+        <p>{{baggage.baggageNumber}}</p>
+      </div>
+
+      <input type="checkbox" name="selfpayout" checked>Selfpayout<br>
+
+      <!-- Other informations -->
+      <div class="progress">
+        <table align="center">
+          <tr>
+            <th>INSURANCE<br>COST</th>
+            <th>MAX<br>PAYOUT</th>
+          </tr>
+          <tr>
+            <td>{{airline.insurancePrice}}</td>
+            <td>{{airline.maxPayout}}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- Other informations END-->
+
+      <!-- Footer -->
+      <footer class="footer">
+        <button class="next-page">Insure</button>
+      </footer>
+      <!-- Footer END -->
+
+    </form>
+  </div>
+</div>
+<!-- Main working environment END -->

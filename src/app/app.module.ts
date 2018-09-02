@@ -17,9 +17,10 @@ import { AuthenticationService } from './_services/authentication.service';
 import { AlertComponent } from './_shared/alert/alert.component';
 import { NavigationComponent } from './_shared/navigation/navigation.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { UserInsureComponent } from './user-insure/user-insure.component';
-
 import { ZXingScannerModule } from './_modules/zxing-scanner/zxing-scanner.module';
+import { InsuranceStatusComponent } from './insurance-status/insurance-status.component';
+import { InsuranceConclusionComponent } from './insurance-conclusion/insurance-conclusion.component';
+import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.component';
 
 
 @NgModule({
@@ -30,11 +31,13 @@ import { ZXingScannerModule } from './_modules/zxing-scanner/zxing-scanner.modul
     AirlineHomeComponent,
     AlertComponent,
     NavigationComponent,
-    UserInsureComponent,
     BaggageScannComponent,
     BarcodeScannerComponent,
     BoardPassScannComponent,
-    QRScannerComponent
+    QRScannerComponent,
+    InsuranceStatusComponent,
+    InsuranceConclusionComponent,
+    InsuranceClaimComponent
   ],
   imports: [
     BrowserModule,

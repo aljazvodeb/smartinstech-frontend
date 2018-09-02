@@ -1,7 +1,7 @@
 <!-- Navigation bar (Need help?Logo//Menu) -->
 <header class="navbar">
   <div class="help"> <!-- Help link -->
-      <a href="help.html">Need help?</a>
+      <!--<a href="help.html">Need help?</a>-->
   </div>
 
   <!-- Plane logo -->
@@ -18,9 +18,9 @@
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <!-- Overlay content -->
           <div class="overlay-content">
-            <a href="#">STATUS</a>
             <a routerLink="/boardPass" onclick="closeNav()">INSURE</a>
-            <a href="#">CLAIM</a>
+            <a routerLink="/status" onclick="closeNav()">STATUS</a>
+            <a routerLink="/claim" onclick="closeNav()">CLAIM</a>
           </div>
       </div>
       <!-- Use any element to open/show the overlay navigation menu -->

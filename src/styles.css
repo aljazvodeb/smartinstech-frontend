@@ -49,7 +49,7 @@ body,p, a {
   margin-left: 15%;
 }
 
-input[type=text], [type=password], input[type=number], [type=email], [type=url] {
+input[type=text], input[type=password], input[type=number], input[type=email], input[type=url] {
   margin-top: 2%;
   height: 20px;
   width: 70%;
@@ -405,7 +405,7 @@ input[type=text]:focus, [type=password]:focus, input[type=number]:focus, [type=e
 }
 
 .col-3{ margin: 40px 3%; position: relative;z-index:5;} /* necessary to give position: relative to parent. */
-input[type="text"], [type="password"]{font: 15px/24px "Lato", Arial, sans-serif; color: #f2f2f2; width: 100%; box-sizing: border-box; letter-spacing: 1px;background:none;}
+input[type=text],input[type=password],input[type=number],input[type=email],input[type=url]{font: 15px/24px "Lato", Arial, sans-serif; color: #f2f2f2; width: 100%; box-sizing: border-box; letter-spacing: 1px;background:none;}
 
 
 .effect-1{

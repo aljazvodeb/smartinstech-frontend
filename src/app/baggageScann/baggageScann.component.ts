@@ -2,6 +2,7 @@ import { BaggageData } from '../_models/baggageData';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Result } from '@zxing/library';
+import { DataService } from '../_services/data.service';
 
 @Component({
   selector: 'app-baggage-component',
@@ -15,7 +16,7 @@ export class BaggageScannComponent implements OnInit {
   text: string;
   errorText: string;
 
-  constructor(public router: Router, private route: ActivatedRoute) {}
+  constructor(public router: Router, private route: ActivatedRoute, private data: DataService) {}
 
   ngOnInit() {
     console.log(this.route.snapshot.paramMap.get('cameraId'));
@@ -30,7 +31,11 @@ export class BaggageScannComponent implements OnInit {
     } else {
       this.errorText = undefined;
       console.log('Baggage Number: ' + this.formData.baggageNumber);
-      this.router.navigate(['/insure']);
+
+      //send dataForm to other components
+      this.data.sendBaggage(this.formData);
+
+      this.router.navigate(['/insurance']);
     }
   }
 

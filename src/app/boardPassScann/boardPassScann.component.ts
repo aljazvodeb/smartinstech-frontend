@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Result } from '@zxing/library';
+import { DataService } from '../_services/data.service';
 
 @Component ({
   selector: 'app-board-pass-component',
@@ -28,7 +29,7 @@ export class BoardPassScannComponent implements OnInit {
   airline: Object;
 
 
-  constructor(private router: Router, private airlineService: AirlineService) {
+  constructor(private router: Router, private airlineService: AirlineService, private data: DataService) {
 
   }
 
@@ -58,6 +59,10 @@ export class BoardPassScannComponent implements OnInit {
     // if ( this.formData.)
     // proveri gi site dali se vneseni
 
+    //send dataForm to other components
+    this.data.sendBoardPass(this.formData);
+
+    //this.data.sendAirline(this.airline);
 
 
     this.router.navigate(['/baggage', this.deviceId]);
