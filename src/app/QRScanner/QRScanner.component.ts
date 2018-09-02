@@ -83,10 +83,31 @@ export class QRScannerComponent implements OnInit {
       this.formData.flightNumber = match[6];
     }
 
+    // this.handleJulianDate(Number(match[8]));
     this.boardPassData.emit(this.formData);
     this.currentDeviceId.emit(this.currentDevice.deviceId);
 
   }
+
+  // handleJulianDate(date) {
+  //   const numberOfDaysInMounth = new Array<number>(31, 28 , 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
+  //   const N = date;
+  //   const y = 2017;
+  //   const z = 365 * y + (y / 4) - (y / 100) + (y / 400);
+  //   const d = N - z;
+
+  //   console.log('D: ' + d);
+  //   let tmp = d;
+  //   let cnt = 0;
+  //   while (tmp > 0) {
+  //     tmp -= numberOfDaysInMounth[cnt];
+  //     cnt++;
+  //   }
+
+  //   console.log('MM: ' + cnt);
+
+
+  // }
 
   handleQrCodeResult(resultString: string) {
     console.log('Result: ', resultString);

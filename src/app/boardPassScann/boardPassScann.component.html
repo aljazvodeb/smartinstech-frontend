@@ -43,7 +43,13 @@
         <input type="date" class="form-control" [(ngModel)]="formData.dateOfFlight" name='dateOfFlight' id="dateOfFlight">
       </div>
 
-      <!-- <button type="submit"  class="button btn btn-success">Submit</button> -->
+
+      <div class="form-group">
+        <label>Airlines</label>
+        <select [(ngModel)]="id" class="form-control" id="airline" name="airline">
+          <option *ngFor="let airline of airlines"  [value]="airline._id">{{airline._id}}</option>
+        </select>
+       </div>
 
     </form>
     <footer class="footer">

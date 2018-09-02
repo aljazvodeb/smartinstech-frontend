@@ -1,3 +1,5 @@
+import { Airline } from './../_models/airline';
+import { AirlineService } from './../_services/airline.service';
 import { BoardPassData } from '../_models/boardPassData';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -20,11 +22,20 @@ export class BoardPassScannComponent implements OnInit {
   formText = 'Please check, (if needed) edit your information and add Date of flight';
   errorText: string;
 
-  constructor(private router: Router) {
+  airlines: Array<Airline>;
+  id: string;
+
+  airline: Object;
+
+
+  constructor(private router: Router, private airlineService: AirlineService) {
 
   }
 
   ngOnInit() {
+    this.airlineService.getAll().subscribe(air => {
+      this.airlines = air;
+    });
   }
 
   changeView() {
@@ -32,18 +43,24 @@ export class BoardPassScannComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('First Name: ' + this.formData.name
-                + '\nLastName: ' + this.formData.surname
-                + '\nFrom:: ' + this.formData.fromAirport
-                + '\nTo: ' + this.formData.toAirport
-                + '\nFlight Number: ' + this.formData.flightNumber
-                + '\nDate: ' + this.formData.dateOfFlight
-              + '\nDevice: ' + this.deviceId );
+    this.airlineService.getById(this.id).subscribe(air => {
+      this.formData.airline = air as Airline;
+
+      console.log('First Name: ' + this.formData.name
+      + '\nLastName: ' + this.formData.surname
+      + '\nFrom:: ' + this.formData.fromAirport
+      + '\nTo: ' + this.formData.toAirport
+      + '\nFlight Number: ' + this.formData.flightNumber
+      + '\nDate: ' + this.formData.dateOfFlight
+      + '\nAirline: ' + this.formData.airline );
+    });
+
     // if ( this.formData.)
     // proveri gi site dali se vneseni
+
+
+
     this.router.navigate(['/baggage', this.deviceId]);
-
-
   }
 
   handleDataFormResult(formData) {

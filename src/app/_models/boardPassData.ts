@@ -1,3 +1,4 @@
+import { Airline } from './airline';
 export class BoardPassData {
   name: string;
   surname: string;
@@ -5,4 +6,5 @@ export class BoardPassData {
   toAirport: string;
   flightNumber: string;
   dateOfFlight: number;
+  airline: Airline;
 }
