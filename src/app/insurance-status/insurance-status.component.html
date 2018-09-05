@@ -1,39 +1,32 @@
-<!-- Main working environment -->
-<div class="main">
-  <p class="instructions">Insurance Status</p>
 
-  <div class="col-3">
-    <article class="helpart">
-      <p class="question">Level #1</p>
-      <p class="answer">#Complete</p>
-    </article>
-  </div>
+<app-barcode-scanner *ngIf='showScanner && !show' (result)="handleResult($event)"></app-barcode-scanner>
 
-  <div class="col-3">
-    <article class="helpart">
-      <p class="question">Level #2</p>
-      <p class="answer">#Complete</p>
-    </article>
-  </div>
-
-  <div class="col-3">
-    <article class="helpart">
-      <p class="question">Level #3</p>
-      <p class="answer">#Complete</p>
-    </article>
-  </div>
-
-  <div class="col-3">
-    <article class="helpart">
-      <p class="question">Level #4</p>
-      <p class="answer">#Pending...</p>
-    </article>
-  </div>
+<div *ngIf="!showScanner">
+    <h1>Check Status</h1>
+    <i (click)="activateScanner()" class="fas fa-camera big-icon fa-5x circle-icon"></i>
+    <p>Scan baggage...</p>
+    
 </div>
-<!-- Main working environment END -->
 
-<!-- Footer -->
-<footer class="footer">
-  <button class="next-page">Claim</button>
-</footer>
-<!-- Footer END -->
+<div class="container" *ngIf='show && !showStatus'>
+        <form>
+          <div><h3>{{text}}</h3></div>
+          <div *ngIf="errorText" style="color:red;"><h4>{{errorText}}</h4></div>
+          <div class="form-group">
+            <label for="baggageNumber">Baggage Number </label>
+            <input type="text" class="form-control" [(ngModel)]="formData.baggageNumber" id="baggageNumber" name='baggageNumber'>
+          </div>
+    
+          <footer class="footer">
+              <button (click)='onSubmit()' class="next-page">Next</button>
+          </footer>
+    
+        </form>
+    </div>
+
+    <div *ngIf='showStatus'>
+        <h1>Status: [status]</h1>
+        <!-- <footer class="footer">
+            <button (click)='onSubmit()' class="next-page">Next</button>
+        </footer> -->
+    </div>

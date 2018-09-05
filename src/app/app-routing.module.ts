@@ -1,3 +1,5 @@
+// import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.component';
+// import { InsuranceStatusComponent } from './insurance-status/insurance-status.component';
 import { BaggageScannComponent } from './baggageScann/baggageScann.component';
 import { BoardPassScannComponent } from './boardPassScann/boardPassScann.component';
 import { NgModule } from '@angular/core';
@@ -16,10 +18,22 @@ const routes: Routes = [
   { path: 'airline/registration', component: AirlineRegistrationComponent },
   { path: 'airline/login', component: AirlineLoginComponent },
   { path: 'insurance', component: InsuranceConclusionComponent },
-  { path: 'status', component: InsuranceStatusComponent },
+  // { path: 'status', component: InsuranceStatusComponent },
   { path: 'claim', component: InsuranceClaimComponent },
   { path: 'boardPass', component: BoardPassScannComponent },
-  { path: 'baggage/:cameraId', component: BaggageScannComponent},
+  {
+    path: 'baggage/:cameraId',
+    component: BaggageScannComponent,
+  },
+  {
+    path: 'status',
+    component: InsuranceStatusComponent
+  },
+  // {
+  //   path: 'claim',
+  //   component: InsuranceClaimComponent
+  // },
+
   // otherwise redirect to home
   { path: '**', redirectTo: 'boardPass' }
 ];

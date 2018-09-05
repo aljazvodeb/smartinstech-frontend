@@ -17,6 +17,8 @@ export class InsuranceConclusionComponent implements OnInit {
   baggage: BaggageData;
   airline: Airline;
 
+  selfPayout = true; 
+
   constructor(private data: DataService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {

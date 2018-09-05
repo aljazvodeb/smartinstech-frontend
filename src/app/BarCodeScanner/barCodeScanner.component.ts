@@ -36,17 +36,19 @@ export class BarcodeScannerComponent implements OnInit {
     this.scanner.setCodeReader(new BrowserBarCodeReader());
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
       this.availableDevices = devices;
+    if (this.deviceId) {
+      this.scanner.changeDevice(this.scanner.getDeviceById(this.deviceId));
+      this.currentDevice = this.scanner.getDeviceById(this.deviceId);
+      setTimeout(() => {
+        if (this.barCodeResultString === undefined) {
+          // const data = new BaggageData();
+          // data.baggageNumber = '1234567890';
+          this.handleResultData(this.barCodeResultString);
+        }
+      }, 15000);
 
-    this.scanner.changeDevice(this.scanner.getDeviceById(this.deviceId));
-    this.currentDevice = this.scanner.getDeviceById(this.deviceId);
-    setTimeout(() => {
-      if (this.barCodeResultString === undefined) {
-        // const data = new BaggageData();
-        // data.baggageNumber = '1234567890';
-        this.handleResultData(this.barCodeResultString);
-      }
-    }, 15000);
-
+    }
+    
       // selects the devices's back camera by default
       for (const device of devices) {
         if (/back|rear|environment/gi.test(device.label)) {
@@ -112,7 +114,7 @@ export class BarcodeScannerComponent implements OnInit {
         this.handleResultData(this.barCodeResultString);
 
       }
-    }, 10000);
+    }, 5000);
   }
 
   onSubmit() {
