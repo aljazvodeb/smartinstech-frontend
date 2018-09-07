@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService } from '../_services/alert.service';
 import { AuthenticationService } from '../_services/authentication.service';
+import { DataService } from '../_services/data.service';
 
 @Component({
   selector: 'app-insurance-claim',
@@ -20,17 +21,17 @@ export class InsuranceClaimComponent implements OnInit {
   errorText: string;
   selfPayout: boolean;
   showClaim: boolean;
+  baggage: BaggageData;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService
-  ) {}
+  constructor(private formBuilder: FormBuilder, private data: DataService) {}
 
   ngOnInit() {
     this.showClaim = false;
+
+    //data from scanner
+    this.data.currentBaggage.subscribe(baggage => this.baggage = baggage);
+    console.log('Baggage Number: ' + this.baggage.baggageNumber);
+
   }
 
   activateScanner() {
