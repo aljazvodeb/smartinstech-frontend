@@ -73,32 +73,32 @@ export class ContractsService {
         }) as Promise<number>;
     }
 
-    public async getInsuranceStatus(): Promise<string> {
+    public async getInsuranceStatus(baggageId): Promise<string> {
         let account = await this.getAccount();
 
         return new Promise((resolve, reject) => {
             let _web3 = this._web3;
-            this._sitContract.balanceOf.call(account, function (err, result) {
+            this._sitContract.getInsurance.call(baggageId, function (err, result) {
                 if (err != null) {
                     reject(err);
                 }
 
-                resolve(_web3.fromWei(result));
+                resolve(result);
             });
         }) as Promise<string>;
     }
 
-    public async createInsurance(): Promise<string> {
+    public async createInsurance(baggageId, dateTimeOfFirstPayout, pricePerBaggage, maxPayoutPerBaggage, apiUrl, pathToData): Promise<string> {
         let account = await this.getAccount();
 
         return new Promise((resolve, reject) => {
             let _web3 = this._web3;
-            this._sitContract.balanceOf.call(account, function (err, result) {
+            this._sitContract.createInsurance.call(baggageId, dateTimeOfFirstPayout, pricePerBaggage, maxPayoutPerBaggage, apiUrl, pathToData, function (err, result) {
                 if (err != null) {
                     reject(err);
                 }
 
-                resolve(_web3.fromWei(result));
+                resolve(result);
             });
         }) as Promise<string>;
     }
