@@ -5,7 +5,7 @@ export class Airline {
   linkToWS: string;
   pathToData: string;
   //TRR: string;
-  ethAddress: string;
+  //ethAddress: string;
   insurancePrice: number;
   maxPayout: number;
   username: string;

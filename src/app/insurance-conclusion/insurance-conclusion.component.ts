@@ -4,6 +4,7 @@ import { BoardPassData } from '../_models/boardPassData';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { BaggageData } from '../_models/baggageData';
 import { Airline } from '../_models/airline';
+import { InsuranceService } from '../_services/insurance.service';
 
 @Component({
   selector: 'app-insurance-conclusion',
@@ -19,7 +20,7 @@ export class InsuranceConclusionComponent implements OnInit {
 
   selfPayout = true; 
 
-  constructor(private data: DataService, private formBuilder: FormBuilder) { }
+  constructor(private data: DataService, private formBuilder: FormBuilder, private insurance: InsuranceService) { }
 
   ngOnInit() {
     this.data.currentBoardPass.subscribe(boardPass => this.boardPass = boardPass);
@@ -46,7 +47,17 @@ export class InsuranceConclusionComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.insurance.createInsurance(
+      [Number(this.baggage.baggageNumber)],
+      //this.boardPass.dateOfFlight,
+      1536426300,
+      this.airline.insurancePrice, 
+      this.airline.maxPayout,
+      this.airline.linkToWS,
+      this.airline.pathToData,
+      //hardcoded selfPayout
+      true
+    )
   }
 
 }

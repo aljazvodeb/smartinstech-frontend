@@ -36,7 +36,7 @@ export class AirlineHomeComponent implements OnInit {
       linkToWS: [this.currentAirline.linkToWS, Validators.required],
       pathToData: [this.currentAirline.pathToData, Validators.required],
       //TRR: [this.currentAirline.TRR, Validators.required],
-      ethAddress: [this.currentAirline.ethAddress, Validators.required],
+      //ethAddress: [this.currentAirline.ethAddress, Validators.required],
       insurancePrice: [this.currentAirline.insurancePrice, Validators.required],
       maxPayout: [this.currentAirline.maxPayout, Validators.required]
     });
