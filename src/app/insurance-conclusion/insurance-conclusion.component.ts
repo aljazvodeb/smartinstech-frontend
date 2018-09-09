@@ -53,6 +53,7 @@ export class InsuranceConclusionComponent implements OnInit {
         + '\nDevice: ' + this.boardPass);
 
       console.log('Baggage Number: ' + this.baggage.baggageNumber);
+      console.log('Unix time: ' + Math.round(new Date(this.boardPass.dateOfFlight).getTime() / 1000));
 
       this.insureForm = this.formBuilder.group({
         flightNumber: this.boardPass.flightNumber,
@@ -73,8 +74,8 @@ export class InsuranceConclusionComponent implements OnInit {
 
     this.insurance.createInsurance(
       [Number(this.baggage.baggageNumber)],
-      //this.boardPass.dateOfFlight,
-      1536426300,
+      //converted to unix format
+      Math.round(new Date(this.boardPass.dateOfFlight).getTime() / 1000),
       this.airline.insurancePrice,
       this.airline.maxPayout,
       this.airline.linkToWS,

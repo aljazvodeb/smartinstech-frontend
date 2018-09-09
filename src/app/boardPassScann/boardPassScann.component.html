@@ -39,15 +39,14 @@
       </div>
 
       <div class="form-group">
-        <label>Date of Flight</label>
-        <input type="date" class="form-control" [(ngModel)]="formData.dateOfFlight" name='dateOfFlight' id="dateOfFlight">
+        <label>Date and time of Flight</label>
+        <input type="datetime-local" class="form-control" [(ngModel)]="formData.dateOfFlight" name='dateOfFlight' id="dateOfFlight">
       </div>
-
 
       <div class="form-group">
         <label>Airlines</label>
         <select [(ngModel)]="id" class="form-control" id="airline" name="airline">
-          <option *ngFor="let airline of fullInfoAirlines"  [value]="airline.name">{{airline.name}}</option>
+          <option *ngFor="let airline of fullInfoAirlines"  [value]="airline._id">{{airline.name}}</option>
         </select>
        </div>
 
