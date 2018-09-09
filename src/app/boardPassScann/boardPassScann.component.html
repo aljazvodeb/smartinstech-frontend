@@ -47,7 +47,7 @@
       <div class="form-group">
         <label>Airlines</label>
         <select [(ngModel)]="id" class="form-control" id="airline" name="airline">
-          <option *ngFor="let airline of airlines"  [value]="airline._id">{{airline._id}}</option>
+          <option *ngFor="let airline of fullInfoAirlines"  [value]="airline.name">{{airline.name}}</option>
         </select>
        </div>
 

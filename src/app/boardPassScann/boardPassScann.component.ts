@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { Result } from '@zxing/library';
 import { DataService } from '../_services/data.service';
 
-@Component ({
+@Component({
   selector: 'app-board-pass-component',
   templateUrl: 'boardPassScann.component.html',
   styleUrls: ['./boardPassScann.component.scss']
@@ -24,6 +24,8 @@ export class BoardPassScannComponent implements OnInit {
   errorText: string;
 
   airlines: Array<Airline>;
+  fullInfoAirlines: Array<Airline> = [];
+
   id: string;
 
   airline: Object;
@@ -36,6 +38,11 @@ export class BoardPassScannComponent implements OnInit {
   ngOnInit() {
     this.airlineService.getAll().subscribe(air => {
       this.airlines = air;
+      //storing airlines with full data
+      for (let entry of this.airlines) {
+        if (entry.name !== undefined)
+          this.fullInfoAirlines.push(entry);
+      }
     });
   }
 
@@ -48,12 +55,12 @@ export class BoardPassScannComponent implements OnInit {
       this.formData.airline = air as Airline;
 
       console.log('First Name: ' + this.formData.name
-      + '\nLastName: ' + this.formData.surname
-      + '\nFrom:: ' + this.formData.fromAirport
-      + '\nTo: ' + this.formData.toAirport
-      + '\nFlight Number: ' + this.formData.flightNumber
-      + '\nDate: ' + this.formData.dateOfFlight
-      + '\nAirline: ' + this.formData.airline );
+        + '\nLastName: ' + this.formData.surname
+        + '\nFrom:: ' + this.formData.fromAirport
+        + '\nTo: ' + this.formData.toAirport
+        + '\nFlight Number: ' + this.formData.flightNumber
+        + '\nDate: ' + this.formData.dateOfFlight
+        + '\nAirline: ' + this.formData.airline);
     });
 
     // if ( this.formData.)
