@@ -7,6 +7,7 @@ import { Airline } from '../_models/airline';
 import { InsuranceService } from '../_services/insurance.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../_services/alert.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-insurance-conclusion',
@@ -25,15 +26,16 @@ export class InsuranceConclusionComponent implements OnInit {
   user: string;
   price: number;
   maxPayout: number;
-  dateTimeOfFirstPayout: number;
-  selfPayout: boolean;
+  dateTimeOfFirstPayout: string;
+  selfPayout: boolean = false;
 
 
   constructor(
     private data: DataService,
     private insurance: InsuranceService,
     private router: Router,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.data.currentBoardPass.subscribe(boardPass => this.boardPass = boardPass);
@@ -53,7 +55,7 @@ export class InsuranceConclusionComponent implements OnInit {
 
       console.log('Baggage Number: ' + this.baggage.baggageNumber);
       console.log('Unix time: ' + Math.round(new Date(this.boardPass.dateOfFlight).getTime() / 1000));
-
+      console.log('Normal time: ' + this.datePipe.transform(new Date(Math.round(new Date(this.boardPass.dateOfFlight).getTime() / 1000) * 1000), "dd.MM.yyyy HH:mm"));
     } else {
       this.alertService.error('Incomplete data, try again', true);
       this.router.navigate(['/boardPass']);
@@ -61,12 +63,10 @@ export class InsuranceConclusionComponent implements OnInit {
 
   }
 
-
   onSubmit() {
-    if (this.selfPayout == undefined)
-      this.selfPayout = false;
+
     console.log("selfpayout: " + this.selfPayout);
-    
+
     this.insurance.createInsurance(
       [Number(this.baggage.baggageNumber)],
       //converted to unix format
@@ -92,10 +92,12 @@ export class InsuranceConclusionComponent implements OnInit {
         this.user = this.eventData.args.user;
         console.log("price: " + this.eventData.args.price.toNumber());
         this.price = this.eventData.args.price.toNumber();
+        this.price = this.price * 0.000000000000000001;
         console.log("maxPayout: " + this.eventData.args.maxPayout.toNumber());
         this.maxPayout = this.eventData.args.maxPayout.toNumber();
         console.log("dateTimeOfFirstPayout: " + this.eventData.args.dateTimeOfFirstPayout.toNumber());
-        this.dateTimeOfFirstPayout = this.eventData.args.dateTimeOfFirstPayout.toNumber();
+        this.dateTimeOfFirstPayout = this.datePipe.transform(new Date((this.eventData.args.dateTimeOfFirstPayout.toNumber()) * 1000), "dd.MM.yyyy HH:mm");
+        ;
 
       }
     });

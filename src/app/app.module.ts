@@ -22,6 +22,7 @@ import { ZXingScannerModule } from './_modules/zxing-scanner/zxing-scanner.modul
 import { InsuranceStatusComponent } from './insurance-status/insurance-status.component';
 import { InsuranceConclusionComponent } from './insurance-conclusion/insurance-conclusion.component';
 import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.compo
     AuthGuard,
     AlertService,
     AirlineService,
-    AuthenticationService
+    AuthenticationService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
