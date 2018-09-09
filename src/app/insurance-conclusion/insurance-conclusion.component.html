@@ -4,7 +4,7 @@
 
     <div class="container" *ngIf='!showEvent && !showEventListened'>
 
-      <form class="smartcontractinfo" [formGroup]="insureForm" (ngSubmit)="onSubmit()">
+      <form class="smartcontractinfo" >
         <p class="instructions">Smart Contract Info</p>
 
         <div class="col-3">
@@ -24,7 +24,11 @@
           <p>{{baggage.baggageNumber}}</p>
         </div>
 
-        <input type="checkbox" name="selfpayout">Selfpayout<br>
+        <div class="form-group">
+          <input type="checkbox" class="form-control" [(ngModel)]="selfPayout" name='selfPayout' id="selfPayout">Selfpayout<br>
+        </div>
+
+
 
         <!-- Other informations -->
         <div class="progress">
@@ -43,7 +47,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-          <button class="next-page">Insure</button>
+          <button (click)='onSubmit()' class="next-page">Insure</button>
         </footer>
         <!-- Footer END -->
 

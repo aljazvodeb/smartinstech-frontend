@@ -15,23 +15,22 @@ import { AlertService } from '../_services/alert.service';
 })
 export class InsuranceConclusionComponent implements OnInit {
 
-  insureForm: FormGroup;
   boardPass: BoardPassData;
   baggage: BaggageData;
   airline: Airline;
   eventData: any;
   showEvent: boolean = false;
   loading: boolean = true;
-  selfPayout: boolean;
   baggageId: number;
   user: string;
   price: number;
   maxPayout: number;
   dateTimeOfFirstPayout: number;
+  selfPayout: boolean;
+
 
   constructor(
     private data: DataService,
-    private formBuilder: FormBuilder,
     private insurance: InsuranceService,
     private router: Router,
     private alertService: AlertService) { }
@@ -55,13 +54,6 @@ export class InsuranceConclusionComponent implements OnInit {
       console.log('Baggage Number: ' + this.baggage.baggageNumber);
       console.log('Unix time: ' + Math.round(new Date(this.boardPass.dateOfFlight).getTime() / 1000));
 
-      this.insureForm = this.formBuilder.group({
-        flightNumber: this.boardPass.flightNumber,
-        baggageNumber: this.baggage.baggageNumber,
-        name: this.airline.name,
-        insurancePrice: this.airline.insurancePrice,
-        maxPayout: this.airline.maxPayout
-      });
     } else {
       this.alertService.error('Incomplete data, try again', true);
       this.router.navigate(['/boardPass']);
@@ -71,7 +63,10 @@ export class InsuranceConclusionComponent implements OnInit {
 
 
   onSubmit() {
-
+    if (this.selfPayout == undefined)
+      this.selfPayout = false;
+    console.log("selfpayout: " + this.selfPayout);
+    
     this.insurance.createInsurance(
       [Number(this.baggage.baggageNumber)],
       //converted to unix format
@@ -80,8 +75,7 @@ export class InsuranceConclusionComponent implements OnInit {
       this.airline.maxPayout,
       this.airline.linkToWS,
       this.airline.pathToData,
-      //hardcoded selfPayout
-      false
+      this.selfPayout
     );
 
     this.showEvent = true;
