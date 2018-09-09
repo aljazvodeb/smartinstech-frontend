@@ -56,7 +56,7 @@ export class InsuranceConclusionComponent implements OnInit {
       this.airline.linkToWS,
       this.airline.pathToData,
       //hardcoded selfPayout
-      true
+      false
     )
   }
 

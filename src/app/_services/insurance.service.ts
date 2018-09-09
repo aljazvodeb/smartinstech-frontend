@@ -60,24 +60,44 @@ export class InsuranceService {
     _maxPayoutPerBaggage: number, _apiUrl: string, _pathToData: string, _selfPayout: boolean) {
     let account = await this.getAccount();
     console.log("Account: " + account);
+    if (_selfPayout == true) {
+      return this._insuranceContract.createInsurance.sendTransaction(
+        _baggageId,
+        _dateTimeOfFirstPayout,
+        _pricePerBaggage,
+        _maxPayoutPerBaggage,
+        _apiUrl,
+        _pathToData,
+        _selfPayout,
+        { from: account, gas: 4665270, value: this._web3.toWei((_baggageId.length * _pricePerBaggage), "ether") }, function (err, transactionHash) {
+          if (!err) {
+            console.log('Transaction ' + transactionHash + "successful!");
+            //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
+          } else {
+            console.log(err.value);
+            //this.alertService.error(err, false);
+          }
+        });
+    } else {
+      return this._insuranceContract.createInsurance.sendTransaction(
+        _baggageId,
+        _dateTimeOfFirstPayout,
+        _pricePerBaggage,
+        _maxPayoutPerBaggage,
+        _apiUrl,
+        _pathToData,
+        _selfPayout,
+        { from: account, gas: 4665270, value: this._web3.toWei(((_pricePerBaggage * 0.1 + _pricePerBaggage) * _baggageId.length), "ether") }, function (err, transactionHash) {
+          if (!err) {
+            console.log('Transaction ' + transactionHash + "successful!");
+            //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
+          } else {
+            console.log(err.value);
+            //this.alertService.error(err, false);
+          }
+        });
+    }
 
-    return this._insuranceContract.createInsurance.sendTransaction(
-      _baggageId,
-      _dateTimeOfFirstPayout,
-      _pricePerBaggage,
-      _maxPayoutPerBaggage,
-      _apiUrl,
-      _pathToData,
-      _selfPayout,
-      { from: account, gas: 4665270, value: this._web3.toWei(_pricePerBaggage, "ether") }, function (err, transactionHash) {
-        if (!err) {
-          console.log('Transaction ' + transactionHash + "successful!");
-          //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
-        } else {
-          console.log(err);
-          //this.alertService.error(err, false);
-        }
-      });
   }
 
   public async checkBaggage(_baggageId: number) {
