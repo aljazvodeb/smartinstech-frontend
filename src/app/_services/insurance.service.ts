@@ -68,10 +68,11 @@ export class InsuranceService {
         _apiUrl,
         _pathToData,
         _selfPayout,
-        { from: account, gas: 4665270, value: this._web3.toWei((_baggageId.length * _pricePerBaggage), "ether") }, function (err, transactionHash) {
+        { from: account, value: this._web3.toWei((_baggageId.length * _pricePerBaggage), "ether") }, function (err, transactionHash) {
           if (!err) {
-            console.log('Transaction ' + transactionHash + "successful!");
-            //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
+            //this.alertService.success('Transaction ' + transactionHash + " submitted!", false);
+            console.log('Transaction ' + transactionHash + " successful!");
+            //this.alertService.success('Transaction ' + transactionHash + " submitted!", false);
           } else {
             console.log(err.value);
             //this.alertService.error(err, false);
@@ -86,10 +87,10 @@ export class InsuranceService {
         _apiUrl,
         _pathToData,
         _selfPayout,
-        { from: account, gas: 4665270, value: this._web3.toWei(((_pricePerBaggage * 0.1 + _pricePerBaggage) * _baggageId.length), "ether") }, function (err, transactionHash) {
+        { from: account, value: this._web3.toWei(((_pricePerBaggage * 0.1 + _pricePerBaggage) * _baggageId.length), "ether") }, function (err, transactionHash) {
           if (!err) {
             console.log('Transaction ' + transactionHash + " submitted!");
-            //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
+            //this.alertService.success('Transaction ' + transactionHash + " submitted!", false);
           } else {
             console.log(err.value);
             //this.alertService.error(err, false);
@@ -120,7 +121,7 @@ export class InsuranceService {
     this._insuranceContract.checkBaggage.sendTransaction(_baggageId, { from: account }, function (err, transactionHash) {
       if (!err) {
         console.log('Transaction ' + transactionHash + " submitted!");
-        //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
+        //this.alertService.success('Transaction ' + transactionHash + " submitted!", false);
       } else {
         console.log(err);
         //this.alertService.error(err, false);
@@ -135,7 +136,7 @@ export class InsuranceService {
     this._insuranceContract.getInsurance.sendTransaction(_baggageId, { from: account }, function (err, transactionHash) {
       if (!err) {
         console.log('Transaction ' + transactionHash + "submitted!");
-        //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
+        //this.alertService.success('Transaction ' + transactionHash + " submitted!", false);
       } else {
         console.log(err);
         //this.alertService.error(err, false);
