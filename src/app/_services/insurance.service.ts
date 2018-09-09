@@ -18,9 +18,8 @@ export class InsuranceService {
 
   private _insuranceContract: any;
   private _insuranceContractAddress: string = '0x51bd98a68e6cd2cc8b5779c65ce00fbae7a88204';
-  private alertService: AlertService;
 
-  constructor() {
+  constructor(private alertService: AlertService) {
     if (typeof window.web3 !== 'undefined') {
       // Use Mist/MetaMask's provider
       this._web3 = new Web3(window.web3.currentProvider);
@@ -89,7 +88,7 @@ export class InsuranceService {
         _selfPayout,
         { from: account, gas: 4665270, value: this._web3.toWei(((_pricePerBaggage * 0.1 + _pricePerBaggage) * _baggageId.length), "ether") }, function (err, transactionHash) {
           if (!err) {
-            console.log('Transaction ' + transactionHash + "successful!");
+            console.log('Transaction ' + transactionHash + " submitted!");
             //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
           } else {
             console.log(err.value);
@@ -100,13 +99,27 @@ export class InsuranceService {
 
   }
 
+  public async InsuranceConcluded() {
+    console.log("Listening on contract...");
+    return new Promise((resolve, reject) => {
+      this._insuranceContract.InsuranceConcluded(function (error, result) {
+        if (error != null) {
+          reject(error);
+        }
+
+        resolve(result);
+      });
+    }) as Promise<object>;
+
+  }
+
   public async checkBaggage(_baggageId: number) {
     let account = await this.getAccount();
     console.log("Account: " + account);
 
     this._insuranceContract.checkBaggage.sendTransaction(_baggageId, { from: account }, function (err, transactionHash) {
       if (!err) {
-        console.log('Transaction ' + transactionHash + "successful!");
+        console.log('Transaction ' + transactionHash + " submitted!");
         //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
       } else {
         console.log(err);
@@ -121,7 +134,7 @@ export class InsuranceService {
 
     this._insuranceContract.getInsurance.sendTransaction(_baggageId, { from: account }, function (err, transactionHash) {
       if (!err) {
-        console.log('Transaction ' + transactionHash + "successful!");
+        console.log('Transaction ' + transactionHash + "submitted!");
         //this.alertService.success('Transaction ' + transactionHash + "successful!", false);
       } else {
         console.log(err);
