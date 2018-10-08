@@ -32,7 +32,6 @@ export class BaggageScannComponent implements OnInit {
       this.errorText = undefined;
       console.log('Baggage Number: ' + this.formData.baggageNumber);
 
-      //send dataForm to other components
       this.data.sendBaggage(this.formData);
 
       this.router.navigate(['/insurance']);
@@ -50,7 +49,6 @@ export class BaggageScannComponent implements OnInit {
     } else {
       this.text = 'Unable to scan, please enter your Baggage number';
     }
-
     this.clicked();
   }
 }

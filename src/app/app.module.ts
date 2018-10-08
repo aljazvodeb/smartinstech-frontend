@@ -17,7 +17,6 @@ import { AuthenticationService } from './_services/authentication.service';
 import { AlertComponent } from './_shared/alert/alert.component';
 import { NavigationComponent } from './_shared/navigation/navigation.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { UserInsureComponent } from './user-insure/user-insure.component';
 import { ZXingScannerModule } from './_modules/zxing-scanner/zxing-scanner.module';
 import { InsuranceStatusComponent } from './insurance-status/insurance-status.component';
 import { InsuranceConclusionComponent } from './insurance-conclusion/insurance-conclusion.component';
